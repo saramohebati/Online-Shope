@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io";
-import {CartContext} from '../contexts/CartContext';
+import { CartContext } from "../contexts/CartContext";
 
 const CartItem = ({ item }) => {
-  const {removeFromCart} = useContext(CartContext);
+  const { removeFromCart, increaseAmount } = useContext(CartContext);
 
   const { id, image, title, price, amount } = item;
   return (
@@ -40,7 +40,10 @@ const CartItem = ({ item }) => {
               <div className="h-full flex justify-center items-center px-3">
                 {amount}
               </div>
-              <div className="flex-1 h-full flex justify-center items-center cursor-pointer">
+              <div
+                onClick={() => increaseAmount(id)}
+                className="flex-1 h-full flex justify-center items-center cursor-pointer"
+              >
                 <IoMdAdd />
               </div>
             </div>

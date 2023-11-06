@@ -36,9 +36,14 @@ const CartProvider = ({ children }) => {
     setCart([]);
   };
 
+  const increaseAmount = (id) => {
+    const item = cart.filter((item) => item.id === id);
+    addToCart(item, id);
+  };
+
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, clearCart }}
+      value={{ cart, addToCart, removeFromCart, clearCart, increaseAmount }}
     >
       {children}
     </CartContext.Provider>
