@@ -1,9 +1,11 @@
-import React from 'react';
+import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 flex justify-center py-10 h-[100px]">
-      footer
+    <footer className="bg-primary py-12 ">
+      <div className="container mx-auto">
+        <p className="text-white text-center">Copyright &copy; 2023.</p>
+      </div>
     </footer>
   );
 };
