@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
 import CartItem from "../components/CartItem";
 import { IoMdTrash } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Shop = () => {
   const { cart, clearCart, total } = useContext(CartContext);
@@ -16,18 +17,31 @@ const Shop = () => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>
-      <div className="flex flec-col gap-y-3 py-4 mt-4">
+
+      <div className="flex flex-col gap-y-3 py-4 mt-4">
         <div className="flex w-full justify-between items-center">
           <div className="uppercase font-semibold">
             <span className="mr-2">Total:</span>$ {parseFloat(total).toFixed(2)}
           </div>
           <div
             onClick={clearCart}
-            className="cursor-pointer py-4 bg-red-500 text-white w-12 h-12 flex justify-center items-center text-xl"
+            className="cursor-pointer py-4 bg-red-500 text-white w-10 h-10 flex justify-center items-center text-xl"
           >
             <IoMdTrash />
           </div>
         </div>
+        <Link
+          to="/"
+          className="bg-gray-200 text-primary flex p-4 justify-center items-center w-full font-medium"
+        >
+          View cart
+        </Link>
+        <Link
+          to="/"
+          className="bg-gray-400 text-white flex p-4 justify-center items-center w-full font-medium"
+        >
+          Checkout
+        </Link>
       </div>
     </div>
   );
