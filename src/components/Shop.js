@@ -5,12 +5,14 @@ import { IoMdTrash } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const Shop = () => {
-  const { cart, clearCart, total } = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
 
   return (
     <div className="pt-10">
       <div className="flex items-center justify-between p-6 pt-10 border-b">
-        <div className="uppercase text-sm font-semibold">Shopping Bag (0)</div>
+        <div className="uppercase text-sm font-semibold">
+          Shopping Bag ({itemAmount})
+        </div>
       </div>
       <div className=" flex flex-col gap-y-2 h-full lg:h-[600px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map((item) => {
