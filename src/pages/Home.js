@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { ProducContent } from "../contexts/ProductContext";
+import { ProducContext } from "../contexts/ProductContext";
 import Product from "../components/Product";
 
 const Home = () => {
-  const { products } = useContext(ProducContent);
+  const { products } = useContext(ProducContext);
 
   const filteredProducts = products.filter((item) => {
     return (
