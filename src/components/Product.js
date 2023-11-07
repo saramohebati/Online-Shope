@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 
 const Product = ({ product }) => {
@@ -18,9 +17,7 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div>
-          <Link to={`/product/${id}`}>
-            <h1 className="font-bold font-semibold">{title}</h1>
-          </Link>
+          <h1 className="font-bold font-semibold">{title}</h1>
           <p>{category}</p>
         </div>
       </div>
