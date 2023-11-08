@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { BiLoader } from "react-icons/bi";
 import Product from "../components/Product";
 
@@ -16,7 +16,6 @@ function Filter() {
         setData(await response.clone().json());
         setFilter(await response.json());
         setLoading(false);
-        console.log(filter);
       }
     };
     getProducts();

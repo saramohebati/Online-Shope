@@ -20,7 +20,7 @@ const Header = () => {
       } fixed w-full z-10 transition-all`}
     >
       <div className="container mx-auto flex justify-between items-center px-5 h-full">
-        <Link>
+        <Link to="/user">
           <IoMdPerson size={32} />
         </Link>
         <Link to="/">Online Shop</Link>
