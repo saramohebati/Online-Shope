@@ -22,11 +22,12 @@ const User = () => {
           <h1 className="font-bold font-semibold">Profile</h1>
         </div>
       </div>
-      <div className="flex text-center flex-col pt-4">
-        {user.map((item) => (
+      <div className="flex text-center flex-col pt-4 font-bold">
+        {user.slice(0, 1).map((item) => (
           <div key={item.id}>
-            <div>User Name:{item.username}</div>
+            <div>User Name: {item.username}</div>
             <div>Email: {item.email}</div>
+            <div>Phone: {item.phone}</div>
           </div>
         ))}
       </div>
