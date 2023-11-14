@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Product from "./Product";
 
 function Search() {
@@ -7,7 +7,7 @@ function Search() {
 
   useEffect(() => {
     const getProducts = async () => {
-       fetch("https://fakestoreapi.com/products")
+      fetch("https://fakestoreapi.com/products")
         .then((response) => response.json())
         .then((data) => setData(data))
         .catch((error) => console.log(error));

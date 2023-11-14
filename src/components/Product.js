@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
+import PropTypes from "prop-types";
 
 const Product = ({ product }) => {
   const { id, image, category, title, price } = product;
@@ -26,13 +27,17 @@ const Product = ({ product }) => {
         <p className="font-semibold">$ {price}</p>
         <button
           onClick={() => addToCart(product, id)}
-          class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+          className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
         >
           Add To Cart
         </button>
       </div>
     </div>
   );
+};
+
+Product.propTypes = {
+  product: PropTypes.string,
 };
 
 export default Product;

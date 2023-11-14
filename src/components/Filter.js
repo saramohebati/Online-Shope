@@ -50,20 +50,20 @@ function Filter() {
             onClick={() => filterProduct("men's clothing")}
             className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-1 mx-1 border border-gray-400 rounded shadow"
           >
-            Men's Clothing
+            Men`&apos;`s Clothing
           </button>
           <button
             onClick={() => filterProduct("women's clothing")}
             className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-1 mx-1 border border-gray-400 rounded shadow"
           >
-            Women's Clothing
+            Women`&apos;`s Clothing
           </button>
           <button
             onClick={() => filterProduct("jewelery")}
             className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-1 mx-1 border border-gray-400 rounded shadow"
           >
             Jewelery
-          </button>{" "}
+          </button>
           <button
             onClick={() => filterProduct("electronics")}
             className="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-1 mx-1 border border-gray-400 rounded shadow"
