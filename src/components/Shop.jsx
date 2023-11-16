@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CartContext } from "../contexts/CartContext";
-import CartItem from "../components/CartItem";
+import CartItem from "./CartItem";
 import { IoMdTrash } from "react-icons/io";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from "react";
-import Product from "../components/Product";
+import Product from "./Product";
 
 function Filter() {
   const [data, setData] = useState([]);
