@@ -31,11 +31,11 @@ function Search() {
 
   return (
     <>
-      <div className="flex text-center p-3">
+      <div className="flex p-3">
         <div>
           <input
             type="text"
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold h-[50px] px-5 mx-10 border border-gray-400 rounded shadow"
+            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold h-[35px] px-5 mx-5 border border-gray-400 rounded shadow"
             placeholder="Search Product"
             value={search}
             onChange={searchHandler}
