@@ -4,7 +4,7 @@ import Search from "../components/Search";
 const Home = () => {
   return (
     <div>
-      <section className="py-16">
+      <section className=" pt-20">
         <Search />
       </section>
     </div>

@@ -1,10 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Product from "./Product";
-import Filter from "./Filter";
+import Select from "react-select";
 
 function Search() {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
+
+  const [selectCategory, setSelectCategory] = useState(null);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -29,27 +31,49 @@ function Search() {
     setSearch(e.target.value);
   };
 
+  const categories = Array.from(new Set(data.map((res) => res.category)));
+
+  const categoryOptions = categories.map((category) => ({
+    value: category,
+    label: category,
+  }));
+
+  const filterProducts = selectCategory
+    ? data.filter((product) => product.category === selectCategory.value)
+    : data;
+
   return (
     <>
       <div className="flex p-3">
-        <div>
-          <input
-            type="text"
-            className="bg-white hover:bg-gray-100 text-gray-800 font-semibold h-[35px] px-5 mx-5 border border-gray-400 rounded shadow"
-            placeholder="Search Product"
-            value={search}
-            onChange={searchHandler}
-          />
-        </div>
-        <div>
-          <Filter />
-        </div>
+        <input
+          type="text"
+          className="bg-white hover:bg-gray-100 text-gray-800 font-semibold h-[40px] px-5 mx-5 border border-gray-400 rounded shadow"
+          placeholder="Search Product"
+          value={search}
+          onChange={searchHandler}
+        />
+
+        <Select
+          className="text-gray-800 font-semibold px-5"
+          options={categoryOptions}
+          isClearable
+          placeholder="Select a category"
+          onChange={(selectOption) => setSelectCategory(selectOption)}
+          value={selectCategory}
+        />
       </div>
-      <div className="container mx-auto">
+      <div className="container mx-auto py-3">
         <div className="grid grid-cols-1 mb:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
-          {searchProducts.map((item) => {
+          {/* {filterProducts.map((item) => {
             return <Product product={item} key={item.id} />;
-          })}
+          }) &&
+            searchProducts.map((item) => {
+              return <Product product={item} key={item.id} />;
+            })} */}
+          {searchProducts &&
+            filterProducts.map((item) => {
+              return <Product product={item} key={item.id} />;
+            })}
         </div>
       </div>
     </>
