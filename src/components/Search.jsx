@@ -18,14 +18,19 @@ function Search() {
     getProducts();
   }, []);
 
-  const searchProducts = useMemo(() => {
-    if (!data) return [];
-    if (!search) return data;
+  const productHandeler = useMemo(() => {
+    const searchProducts = search
+      ? data.filter((item) =>
+          item.title.toLowerCase().includes(search.toLowerCase())
+        )
+      : data;
 
-    return data.filter((item) =>
-      item.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [data, search]);
+    const filterProducts = selectCategory
+      ? data.filter((value) => value.category === selectCategory.value)
+      : data;
+
+    return searchProducts.filter((value) => filterProducts.includes(value));
+  });
 
   const searchHandler = (e) => {
     setSearch(e.target.value);
@@ -37,10 +42,6 @@ function Search() {
     value: category,
     label: category,
   }));
-
-  const filterProducts = selectCategory
-    ? data.filter((product) => product.category === selectCategory.value)
-    : data;
 
   return (
     <>
@@ -64,16 +65,9 @@ function Search() {
       </div>
       <div className="container mx-auto py-3">
         <div className="grid grid-cols-1 mb:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
-          {/* {filterProducts.map((item) => {
+          {productHandeler.map((item) => {
             return <Product product={item} key={item.id} />;
-          }) &&
-            searchProducts.map((item) => {
-              return <Product product={item} key={item.id} />;
-            })} */}
-          {searchProducts &&
-            filterProducts.map((item) => {
-              return <Product product={item} key={item.id} />;
-            })}
+          })}
         </div>
       </div>
     </>
