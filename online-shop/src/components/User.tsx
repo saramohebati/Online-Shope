@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const User = () => {
   const [user, setUser] = useState([]);
@@ -19,15 +19,15 @@ const User = () => {
     <div className="h-full p-10">
       <div className="flex items-center pt-10 border-b">
         <div className="uppercase text-sm font-semibold">
-          <h1 className="font-bold font-semibold">Profile</h1>
+          <h1 className="font-b font-semibold">Profile</h1>
         </div>
       </div>
       <div className="flex text-center flex-col pt-4 font-bold">
         {user.slice(0, 1).map((item) => (
-          <div key={item.id}>
-            <div>User Name: {item.username}</div>
-            <div>Email: {item.email}</div>
-            <div>Phone: {item.phone}</div>
+          <div key={item["id"]}>
+            <div>User Name: {item["username"]}</div>
+            <div>Email: {item["email"]}</div>
+            <div>Phone: {item["phone"]}</div>
           </div>
         ))}
       </div>

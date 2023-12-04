@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdPerson, IoMdBasket } from "react-icons/io";
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../context/CartContext";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
-  const { itemAmount } = useContext(CartContext);
+  const { itemAmount }:any = useContext(CartContext);
 
   useEffect(() => {
     window.addEventListener("scroll", () => {

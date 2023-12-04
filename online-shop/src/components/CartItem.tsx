@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { IoMdAdd, IoMdClose, IoMdRemove } from "react-icons/io";
-import { CartContext } from "../contexts/CartContext";
+import { CartContext } from "../context/CartContext";
 import PropTypes from "prop-types";
 
-const CartItem = ({ item }) => {
-  const { removeFromCart, increaseAmount, decreaseAmount } =
-    useContext(CartContext);
+const CartItem = ({ item }: any) => {
+  const { removeFromCart, increaseAmount, decreaseAmount }: any = useContext(
+    CartContext
+  );
 
   const { id, image, title, price, amount } = item;
   return (
@@ -55,9 +56,9 @@ const CartItem = ({ item }) => {
             <div className="flex-1 flex justify-around items-center">
               $ {price}
             </div>
-            <div className="flex-1 flex justify-end items-center text-primary font-medium">{`$ ${parseFloat(
-              price * amount
-            ).toFixed(2)}`}</div>
+            <div className="flex-1 flex justify-end items-center text-primary font-medium">
+              {`$ ${parseFloat(price) * amount.toFixed(2)}`}
+            </div>
           </div>
         </div>
       </div>

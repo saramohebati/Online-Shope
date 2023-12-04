@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import CartItem from "./CartItem";
 import { IoMdTrash } from "react-icons/io";
 import { Link } from "react-router-dom";
 
 const Shop = () => {
-  const { cart, clearCart, total, itemAmount } = useContext(CartContext);
+  const { cart, clearCart, total, itemAmount }: any = useContext(CartContext);
 
   return (
     <div className="pt-10">
@@ -15,7 +15,7 @@ const Shop = () => {
         </div>
       </div>
       <div className=" flex flex-col gap-y-2 h-full lg:h-[600px] overflow-y-auto overflow-x-hidden border-b">
-        {cart.map((item) => {
+        {cart.map(({ item }: any) => {
           return <CartItem item={item} key={item.id} />;
         })}
       </div>

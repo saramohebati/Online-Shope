@@ -1,12 +1,12 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import Product from "./Product";
 import Select from "react-select";
 
-function Search() {
+const Search = () => {
   const [data, setData] = useState([]);
   const [search, setSearch] = useState("");
 
-  const [selectCategory, setSelectCategory] = useState(null);
+  const [selectCategory, setSelectCategory] = useState<any>(null);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -18,25 +18,25 @@ function Search() {
     getProducts();
   }, []);
 
-  const productHandeler = useMemo(() => {
+  const productHandeler = () => {
     const searchProducts = search
-      ? data.filter((item) =>
-          item.title.toLowerCase().includes(search.toLowerCase())
+      ? data.filter((item: string) =>
+          item["title" as any].toLowerCase().includes(search.toLowerCase())
         )
       : data;
 
     const filterProducts = selectCategory
-      ? data.filter((value) => value.category === selectCategory.value)
+      ? data.filter((value) => value["category"] === selectCategory["value"])
       : data;
 
     return searchProducts.filter((value) => filterProducts.includes(value));
-  });
+  };
 
-  const searchHandler = (e) => {
+  const searchHandler = ({ e }: any) => {
     setSearch(e.target.value);
   };
 
-  const categories = Array.from(new Set(data.map((res) => res.category)));
+  const categories = Array.from(new Set(data.map((res) => res["category"])));
 
   const categoryOptions = categories.map((category) => ({
     value: category,
@@ -53,7 +53,6 @@ function Search() {
           value={search}
           onChange={searchHandler}
         />
-
         <Select
           className="text-gray-800 font-semibold px-5"
           options={categoryOptions}
@@ -65,13 +64,17 @@ function Search() {
       </div>
       <div className="container mx-auto py-3">
         <div className="grid grid-cols-1 mb:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[30px] max-w-sm mx-auto md:max-w-none md:mx-0">
-          {productHandeler.map((item) => {
-            return <Product product={item} key={item.id} />;
+          {[productHandeler].map(({ item }: any) => {
+            if (item !== undefined) {
+              return <Product product={item} key={item.id} />;
+            } else {
+              return <div/>;
+            }
           })}
         </div>
       </div>
     </>
   );
-}
+};
 
 export default Search;

@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
-import { CartContext } from "../contexts/CartContext";
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
 import PropTypes from "prop-types";
 
-const Product = ({ product }) => {
+const Product = ({ product }: any) => {
   const { id, image, category, title, price } = product;
 
-  const { addToCart } = useContext(CartContext);
+  const { addToCart }: any = useContext(CartContext);
 
   return (
     <div className="border border-[#e4e4e4] h-[400px] p-5">
@@ -18,7 +18,7 @@ const Product = ({ product }) => {
           </div>
         </div>
         <div>
-          <h1 className="font-bold font-semibold">{title}</h1>
+          <h1 className="font-b font-semibold">{title}</h1>
           <p>{category}</p>
         </div>
       </div>

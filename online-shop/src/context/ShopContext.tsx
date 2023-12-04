@@ -1,9 +1,9 @@
-import React, { createContext } from "react";
 import PropTypes from "prop-types";
+import { createContext } from "vm";
 
 const ShopContext = createContext();
 
-const ShopProvider = ({ children }) => {
+const ShopProvider = ({ children }: any) => {
   return <ShopContext.Provider>{children}</ShopContext.Provider>;
 };
 
