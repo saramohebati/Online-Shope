@@ -37,7 +37,7 @@ const Product = ({ product }: any) => {
 };
 
 Product.propTypes = {
-  product: PropTypes.string,
+  product: PropTypes.object,
 };
 
 export default Product;
