@@ -16,7 +16,11 @@ const Shop = () => {
       </div>
       <div className=" flex flex-col gap-y-2 h-full lg:h-[600px] overflow-y-auto overflow-x-hidden border-b">
         {cart.map(({ item }: any) => {
-          return <CartItem item={item} key={item.id} />;
+          if (item !== undefined) {
+            return <CartItem item={item} key={item["id"]} />;
+          } else {
+            return <div />;
+          }
         })}
       </div>
 

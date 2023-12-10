@@ -67,7 +67,7 @@ const CartItem = ({ item }: any) => {
 };
 
 CartItem.propTypes = {
-  item: PropTypes.string,
+  item: PropTypes.object,
 };
 
 export default CartItem;

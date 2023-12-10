@@ -7,12 +7,12 @@ const Search = () => {
   const [showData, setShowData] = useState([]);
 
   const [search, setSearch] = useState("");
-
   const [selectCategory, setSelectCategory] = useState<any>(null);
 
   useEffect(() => {
     getProducts();
   }, []);
+
   const getProducts = async (): Promise<any> => {
     await fetch("https://fakestoreapi.com/products")
       .then((response) => response.json())
@@ -20,7 +20,6 @@ const Search = () => {
         setData(data);
         setShowData(data);
       })
-
       .catch((error) => console.log(error));
   };
 
@@ -46,7 +45,6 @@ const Search = () => {
   };
 
   const categoryHandler = (category: any) => {
-    console.log(category);
     setSelectCategory(category);
     const searchProducts = search
       ? data.filter((item: string) =>
@@ -70,7 +68,6 @@ const Search = () => {
     label: category,
   }));
 
-  console.log(data);
   if (!data) {
     return <p>Loading...</p>;
   }
